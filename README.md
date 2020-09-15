@@ -11,3 +11,19 @@ WIP (Work In Progress)!
 Open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 ----------------------------------------
+
+## Initialize Project
+- Run following command at project root:
+    ```sh
+    tsc --init
+    ```
+
+## Watch For Changes
+- To watch a specific file:
+    ```sh
+    tsc --watch fileName.ts
+    ```
+- To watch the entire directory:
+    ```sh
+    tsc --watch
+    ```
