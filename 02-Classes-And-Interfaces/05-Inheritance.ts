@@ -36,4 +36,4 @@ const u1 = new Developer1('Aditya', 'aditya@hajare.com', true);
 const u2 = new Tester1('Nishi', 'nishi@hajare.com', false);
 
 u1.print();
-u2.print();
+u1.print();
