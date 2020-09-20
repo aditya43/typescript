@@ -21,6 +21,6 @@ class User1 implements Animal1, Human1 {
     }
 }
 
-const adi2 = new User1('Human', 'Aditya', 'aditya@hajare.com');
+const adi2: Human1 = new User1('Human', 'Aditya', 'aditya@hajare.com');
 
 adi2.greet();
