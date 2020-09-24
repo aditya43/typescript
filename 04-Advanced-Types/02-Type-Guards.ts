@@ -30,3 +30,29 @@ let foo2: Foo2 = {
 };
 
 details(foo2);
+// +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+// 'instanceof' for classes
+class Human2 {
+    sayHello() {
+        console.log('Hello from Human');
+    }
+}
+
+class Dog1 {
+    bark() {
+        console.log('Bark from Dog');
+    }
+}
+
+function greet1(obj: Human2 | Dog1) {
+    if (obj instanceof Human2) {
+        obj.sayHello();
+    }
+
+    if (obj instanceof Dog1) {
+        obj.bark();
+    }
+}
+
+greet1(new Human2());
+greet1(new Dog1());
