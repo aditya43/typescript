@@ -18,3 +18,12 @@ a1 = {
 };
 
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+// Intersection type with variables
+type Role1 = string | number;
+type Priviledges1 = string;
+
+type Admin1 = Role1 & Priviledges1; // Intersection type.
+
+// const adm1: Admin1 = 2; // Error!
+const adm1: Admin1 = 'Full Access'; // adm1 must only contain 'string' type value
