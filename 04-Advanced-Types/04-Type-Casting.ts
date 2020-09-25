@@ -17,3 +17,8 @@ userInputElement2.value = 'Hello Aditya';
 // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
 // Method #3
+const userInputElement3 = document.getElementById('user-input');
+
+if (userInputElement3) {
+    (userInputElement3 as HTMLInputElement).value = 'Hello Aditya';
+}
