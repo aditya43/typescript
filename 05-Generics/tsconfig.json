@@ -9,6 +9,7 @@
     "module": "commonjs",
     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
     "lib": [
+      "esnext",
       "dom",
       "es6",
       "dom.iterable",
