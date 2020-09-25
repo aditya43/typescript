@@ -3,7 +3,11 @@ names[0].split(' ');
 
 const promise: Promise<string> = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('Hello Aditya');
+        if (true) {
+            resolve('Hello Aditya');
+        } else {
+            reject('Rejected!');
+        }
     }, 2000);
 });
 
