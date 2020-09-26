@@ -1,5 +1,30 @@
+interface ValidatorConfig {
+    [property: string]: {
+        [validatableProp: string]: string[]; // ['required', 'positive']
+    };
+}
+
+const registeredValidators: ValidatorConfig = {};
+
+function Required(target: any, propName: string) {
+    registeredValidators[target.constructor.name] = {
+        [propName]: ['required'],
+    };
+}
+
+function PositiveNumbe(target: any, propName: string) {
+    registeredValidators[target.constructor.name] = {
+        [propName]: ['positive'],
+    };
+}
+
+function Validate(obj: object): boolean {}
+
 class Course {
+    @Required
     title: string;
+
+    @PositiveNumber
     price: number;
 
     constructor(t: string, p: number) {
@@ -20,4 +45,8 @@ courseForm.addEventListener('submit', (e) => {
     const price = +priceElem.value;
 
     const course = new Course(title, price);
+
+    if (!Validate(course)) {
+        alert('Invalid inputs..');
+    }
 });
