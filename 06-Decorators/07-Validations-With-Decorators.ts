@@ -8,35 +8,40 @@ const registeredValidators: ValidatorConfig = {};
 
 function Required(target: any, propName: string) {
     registeredValidators[target.constructor.name] = {
+        ...registeredValidators[target.constructor.name],
         [propName]: ['required'],
     };
 }
 
 function PositiveNumber(target: any, propName: string) {
     registeredValidators[target.constructor.name] = {
+        ...registeredValidators[target.constructor.name],
         [propName]: ['positive'],
     };
 }
 
 function Validate(obj: any): boolean {
     const objValidatorConfig = registeredValidators[obj.constructor.name];
+    let isValid: boolean = true;
 
     if (!objValidatorConfig) {
-        return true;
+        return isValid;
     }
 
     for (const prop in objValidatorConfig) {
         for (const validator of objValidatorConfig[prop]) {
             switch (validator) {
                 case 'required':
-                    return !!obj[prop];
+                    isValid = isValid && !!obj[prop];
+                    break;
                 case 'positive':
-                    return obj[prop] > 0;
+                    isValid = isValid && obj[prop] > 0;
+                    break;
             }
         }
     }
 
-    return true;
+    return isValid;
 }
 
 class Course {
@@ -66,6 +71,8 @@ courseForm.addEventListener('submit', (e) => {
     const course = new Course(title, price);
 
     if (!Validate(course)) {
-        alert('Invalid inputs..');
+        return alert('Invalid inputs..');
     }
+
+    console.log(course);
 });
