@@ -12,13 +12,32 @@ function Required(target: any, propName: string) {
     };
 }
 
-function PositiveNumbe(target: any, propName: string) {
+function PositiveNumber(target: any, propName: string) {
     registeredValidators[target.constructor.name] = {
         [propName]: ['positive'],
     };
 }
 
-function Validate(obj: object): boolean {}
+function Validate(obj: any): boolean {
+    const objValidatorConfig = registeredValidators[obj.constructor.name];
+
+    if (!objValidatorConfig) {
+        return true;
+    }
+
+    for (const prop in objValidatorConfig) {
+        for (const validator of objValidatorConfig[prop]) {
+            switch (validator) {
+                case 'required':
+                    return !!obj[prop];
+                case 'positive':
+                    return obj[prop] > 0;
+            }
+        }
+    }
+
+    return true;
+}
 
 class Course {
     @Required
