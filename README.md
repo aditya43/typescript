@@ -27,3 +27,26 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     ```sh
     tsc --watch
     ```
+
+----------------------------------------
+
+## NodeJS + Express REST API Project Setup
+- Initialize project and install nodejs specific basic dependancies:
+    ```sh
+    # Initialize new nodejs project
+    npm init -y
+
+    # Install basic dependancies
+    npm i --save express body-parser
+
+    # Install nodemon
+    npm i --save-dev nodemon
+    ```
+- Install typescript specific dependancies:
+    ```sh
+    # Install nodejs types
+    npm i --save-dev @types/node
+
+    # Install express types
+    npm i --save-dev @types/express
+    ```
