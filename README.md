@@ -44,11 +44,8 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     ```
 - Install typescript specific dependancies:
     ```sh
-    # Install nodejs types
-    npm i --save-dev @types/node
-
-    # Install express types
-    npm i --save-dev @types/express
+    # Install nodejs and express types
+    npm i --save-dev @types/node @types/express
     ```
 - Add `scripts` under `package.json`:
     ```json
@@ -56,5 +53,40 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
         "dev": "NODE_ENV=dev nodemon dist/app.js",
         "start": "NODE_ENV=prod node dist/app.js",
         "test": "NODE_ENV=test jest --watch --runInBand"
+    }
+    ```
+- Add `.tsconfig` at the typescript project root:
+    ```json
+    {
+        "compilerOptions": {
+            "module": "commonjs",
+            "strict": true,
+            "baseUrl": ".",
+            "outDir": "dist",
+            // "removeComments": true,
+            "target": "es6",
+            "experimentalDecorators": true,
+            "emitDecoratorMetadata": true,
+            "moduleResolution": "node",
+            "importHelpers": true,
+            "noImplicitAny": true,
+            "noEmitOnError": true,
+            "noUnusedLocals": true,
+            "noUnusedParameters": true,
+            "noImplicitReturns": true,
+            "noFallthroughCasesInSwitch": true,
+            "forceConsistentCasingInFileNames": true,
+            "esModuleInterop": true,
+            "sourceMap": true,
+            "typeRoots": [
+                "node_modules/@types"
+            ]
+        },
+        "include": [
+            "src/**/*.ts"
+        ],
+        "exclude": [
+            "**/node_modules/"
+        ]
     }
     ```
