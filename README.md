@@ -50,3 +50,11 @@ Open-sourced software licensed under the [MIT license](http://opensource.org/lic
     # Install express types
     npm i --save-dev @types/express
     ```
+- Add `scripts` under `package.json`:
+    ```json
+    "scripts": {
+        "dev": "NODE_ENV=dev nodemon dist/app.js",
+        "start": "NODE_ENV=prod node dist/app.js",
+        "test": "NODE_ENV=test jest --watch --runInBand"
+    }
+    ```
